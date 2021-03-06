@@ -9,12 +9,31 @@ class TextsController extends Controller
 {
     public function show($id)
    {
-     //idで指定された教科書のページへ行く。
+     //idでテキストを検索して取得
      $text = Text::find($id);
 
       return view('texts.show',[
        'textbook' => $text,
 
      ]);
+   }
+   public function edit($id)
+   {
+     //idで指定された教科書のページへ行く。
+     $text = Text::find($id);
+
+      return view('texts.edit',[
+     'textbook' => $text,
+
+     ]);
+   }
+   public function destroy($id)
+   {
+    //idで指定された教科書のページへ行く。
+     $text = Text::find($id);
+     
+     $text->delete();
+     
+     return redirect('/');
    }
 }

@@ -20,9 +20,7 @@
     {{--          @foreach ($textbook as $kyokasho)  --}}
                     {{-- テキストの名前 --}}
                     <h2 class="mb-0">・{!! nl2br(e($textbook->title)) !!}</h2> 
-     
-                    <li class="dropdown-item">{!! link_to_route('texts.edit', '編集', ['id' => $textbook->id]) !!}</li>   
-                    <li class="dropdown-item">{!! link_to_route('logout.get', '削除') !!}</li>
+                    <h1>ここは編集ページです。</h1>
      {{--            @endforeach  --}}
                  </div>
             </ul>
