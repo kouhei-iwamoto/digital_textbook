@@ -30,6 +30,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/teacher', 'TeacherController@show')->name('teachers.show');
         Route::get('/teacher/students', 'TeacherController@students')->name('teachers.students');
         Route::get('/teacher/texts', 'TeacherController@texts')->name('teacher.texts');
+        
+        Route::get('texts/show/{id}', 'TextsController@show')->name('texts.show');
+        Route::get('texts/edit/{id}', 'TextsController@edit')->name('texts.edit');
     });
     Route::get('/student', 'StudentsController@show');
 });

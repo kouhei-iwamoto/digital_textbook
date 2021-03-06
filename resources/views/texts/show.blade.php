@@ -14,18 +14,19 @@
             </div>
         </aside>
         
-        @if (count($texts) > 0)
+    {{--     @if (count($textbook) > 0)  --}}
             <ul class="list-unstyled">
                 <div class="card">
-                @foreach ($texts as $text)
-                    {{-- 投稿内容 --}}
-                    <h2 class="mb-0">・{!! nl2br(e($text->title)) !!}</h2>
-                    <a>{!! link_to_route('texts.show', '詳細',['id' => $text->id],['class' => 'link']) !!}</a> 
-                @endforeach
+    {{--          @foreach ($textbook as $kyokasho)  --}}
+                    {{-- テキストの名前 --}}
+                    <h2 class="mb-0">・{!! nl2br(e($textbook->title)) !!}</h2> 
+                    <li class="dropdown-item">{!! link_to_route('texts.edit', '編集') !!}</li>
+                    <li class="dropdown-item">{!! link_to_route('logout.get', '削除') !!}</li>
+     {{--            @endforeach  --}}
                  </div>
             </ul>
             {{-- ページネーションのリンク --}}
            {{-- {{ $microposts->links() }} --}}
-        @endif
-
+   {{--    @endif  --}}  
+       
 @endsection
