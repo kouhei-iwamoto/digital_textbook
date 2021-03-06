@@ -34,6 +34,16 @@ class TextsController extends Controller
      
      $text->delete();
      
-     return redirect('/');
+     return redirect('/teacher/texts');
+   }
+   
+   public function update(Request $request, $id)
+   {
+      $text = Text::find($id);
+      //タイトル更新
+      $text->title = $request->title;
+      $text->save();
+      
+      return redirect('/teacher/texts');
    }
 }
