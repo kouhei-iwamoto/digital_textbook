@@ -11,8 +11,8 @@ class TeacherController extends Controller
    {
      //教科書のモデル
      $texts = \Auth::user()->texts;
-      return view('teacher.show',
-      ['texts' => $texts,
+      return view('teacher.show',[
+       'texts' => $texts,
      ]);
    }
    
@@ -23,4 +23,12 @@ class TeacherController extends Controller
    //      '$students' => $students,
    //   ]);
  //  }
+ 
+      public function texts()
+      {
+       $texts = \Auth::user()->texts;
+       return view('teacher.texts', [
+        'texts' => $texts,
+        ]);
+      }
 }

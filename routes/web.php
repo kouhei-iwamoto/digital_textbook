@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['can:is-teacher']], function() {
         Route::get('/teacher', 'TeacherController@show')->name('teachers.show');
         Route::get('/teacher/students', 'TeacherController@students')->name('teachers.students');
+        Route::get('/teacher/texts', 'TeacherController@texts')->name('teacher.texts');
     });
     Route::get('/student', 'StudentsController@show');
 });

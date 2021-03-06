@@ -20,7 +20,7 @@
                 @foreach ($texts as $text)
                     {{-- 投稿内容 --}}
                     <h2 class="mb-0">・{!! nl2br(e($text->title)) !!}</h2>
-               
+                    <h1>ここは教科書一覧ページです。</h1>
                 @endforeach
                  </div>
             </ul>
