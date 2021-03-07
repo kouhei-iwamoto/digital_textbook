@@ -13,7 +13,7 @@
                 </div>
             </div>
         </aside>
-        
+        　　
     {{--     @if (count($textbook) > 0)  --}}
             <ul class="list-unstyled">
                 <div class="card">
@@ -22,7 +22,11 @@
                     <h2 class="mb-0">・{!! nl2br(e($textbook->title)) !!}</h2> 
      
                     <li class="dropdown-item">{!! link_to_route('texts.edit', '編集', ['id' => $textbook->id]) !!}</li>   
-                    <li class="dropdown-item">{!! link_to_route('texts.delete', '削除', ['id' => $textbook->id]) !!}</li>
+                     
+                     {{-- Formファザードで作成する。--}}
+                     {!! Form::model($textbook, ['route' => ['texts.delete', $textbook->id], 'method' => 'delete']) !!}
+                           {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
+                     {!! Form::close() !!}
      {{--            @endforeach  --}}
                  </div>
             </ul>

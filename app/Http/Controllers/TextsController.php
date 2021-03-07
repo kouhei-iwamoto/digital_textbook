@@ -55,4 +55,16 @@ class TextsController extends Controller
         'textbook' => $text,
      ]);
    }
+   
+   public function store(Request $request)
+   {
+      $text = new Text;
+  //  $is_teacher = Text::where('is_teacher', true)->get();
+      //タイトル更新
+      $text->title = $request->title;
+      $text->user_id = true;
+      $text->save();
+      
+      return redirect('/teacher/texts');
+   }
 }

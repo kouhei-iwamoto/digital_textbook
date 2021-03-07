@@ -17,11 +17,10 @@
 
     <div class="row">
                 <div class="col-12">
-        {{--         {!! Form::model($textbook, ['route' => ['textx.store', $textbook->id], 'method' => 'put']) !!}    --}}
-        
+                {!! Form::model($textbook, ['route' => 'texts.store']) !!}   
                         <div class="form-group">
                             {!! Form::label('title', '新しい教科書名:') !!}
-                           {!! Form::text('title', null ,['class' => 'form-control']) !!} 
+                           {!! Form::text('title', null, ['class' => 'form-control']) !!} 
                         </div>
         
                         {!! Form::submit('更新', ['class' => 'btn btn-primary']) !!}
