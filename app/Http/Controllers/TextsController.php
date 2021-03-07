@@ -46,4 +46,13 @@ class TextsController extends Controller
       
       return redirect('/teacher/texts');
    }
+   
+   public function create()
+   {
+    $text = new Text;
+    
+    return view('texts.create', [
+        'textbook' => $text,
+     ]);
+   }
 }

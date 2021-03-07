@@ -35,6 +35,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('texts/edit/{id}', 'TextsController@edit')->name('texts.edit');
         Route::put('texts/{id}', 'TextsController@update')->name('texts.update');
         Route::delete('texts/delete/{id}', 'TextsController@destroy')->name('texts.delete');
+        
+        Route::get('texts/create', 'TextsController@create')->name('texts.create');
     });
     Route::get('/student', 'StudentsController@show');
 });

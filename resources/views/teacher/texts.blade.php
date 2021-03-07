@@ -19,13 +19,18 @@
                 <div class="card">
                 @foreach ($texts as $text)
                     {{-- 投稿内容 --}}
-                    <h2 class="mb-0">・{!! nl2br(e($text->title)) !!}</h2>
-                    <a>{!! link_to_route('texts.show', '詳細',['id' => $text->id],['class' => 'link']) !!}</a> 
+                    <h2 class="mb-0">{!! nl2br(e($text->title)) !!}</h2>
+                    <a>{!! link_to_route('texts.show', '詳細',['id' => $text->id],['class' => 'btn btn-primary']) !!}</a> 
                 @endforeach
                  </div>
-            </ul>
+            
+
             {{-- ページネーションのリンク --}}
            {{-- {{ $microposts->links() }} --}}
         @endif
 
+        
+         <a>{!! link_to_route('texts.create', '教科書を作成する', [],['class' =>'btn btn-danger']) !!}</a> 
+        
+            
 @endsection

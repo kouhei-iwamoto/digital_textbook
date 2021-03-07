@@ -22,7 +22,7 @@
                     <h2 class="mb-0">・{!! nl2br(e($textbook->title)) !!}</h2> 
      
                     <li class="dropdown-item">{!! link_to_route('texts.edit', '編集', ['id' => $textbook->id]) !!}</li>   
-                    <li class="dropdown-item">{!! link_to_route('logout.get', '削除') !!}</li>
+                    <li class="dropdown-item">{!! link_to_route('texts.delete', '削除', ['id' => $textbook->id]) !!}</li>
      {{--            @endforeach  --}}
                  </div>
             </ul>
