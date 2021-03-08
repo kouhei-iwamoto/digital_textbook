@@ -39,6 +39,7 @@ class User extends Authenticatable
     
       public function texts()
     {
+        
         return $this->hasMany(Text::class);
     }
      public function loadRelationshipCounts()

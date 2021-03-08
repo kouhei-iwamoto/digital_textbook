@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Text;
+use App\User;
 
 class TextsController extends Controller
 {
@@ -59,10 +60,11 @@ class TextsController extends Controller
    public function store(Request $request)
    {
       $text = new Text;
+      $kouhei = new User;
   //  $is_teacher = Text::where('is_teacher', true)->get();
       //タイトル更新
       $text->title = $request->title;
-      $text->user_id = true;
+      $text->user_id = 3;
       $text->save();
       
       return redirect('/teacher/texts');
