@@ -12,4 +12,13 @@ class Text extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function curriculums()
+    {
+        return $this->hasMany(Curriculum::class);
+    }
+    
+    public function loadRelationshipCounts()
+    {
+        $this->loadCount('curriculums');
+    }
 }

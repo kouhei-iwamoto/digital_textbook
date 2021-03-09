@@ -31,13 +31,15 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/teacher/students', 'TeacherController@students')->name('teachers.students');
         Route::get('/teacher/texts', 'TeacherController@texts')->name('teacher.texts');
         
-        Route::get('texts/show/{id}', 'TextsController@show')->name('texts.show');
-        Route::get('texts/edit/{id}', 'TextsController@edit')->name('texts.edit');
+        Route::get('texts/create', 'TextsController@create')->name('texts.create');
+        Route::get('texts/{id}', 'TextsController@show')->name('texts.show');
+        Route::get('texts/{id}/edit', 'TextsController@edit')->name('texts.edit');
         Route::put('texts/{id}', 'TextsController@update')->name('texts.update');
         Route::delete('texts/{id}', 'TextsController@destroy')->name('texts.delete');
-        
-        Route::get('texts/create', 'TextsController@create')->name('texts.create');
         Route::post('texts', 'TextsController@store')->name('texts.store');
+        
+        Route::resource('curriculums', 'CurriculumsController');
+        
     });
     Route::get('/student', 'StudentsController@show');
 });

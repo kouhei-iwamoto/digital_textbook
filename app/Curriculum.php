@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Curriculum extends Model
 {
-     protected $fillable = ['title', 'content'];
+     protected $table = 'curriculums';
+     protected $fillable = ['title', 'content', 'text_id'];
      
      
      public function text()

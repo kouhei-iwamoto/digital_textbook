@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Text;
 use App\User;
+use App\Curriculum;
 
 class TextsController extends Controller
 {
@@ -12,10 +13,11 @@ class TextsController extends Controller
    {
      //idでテキストを検索して取得
      $text = Text::find($id);
-
+     $curriculums = $text->curriculums()->get();
+     
       return view('texts.show',[
        'textbook' => $text,
-
+       'curriculums'=> $curriculums,
      ]);
    }
    public function edit($id)

@@ -17,21 +17,21 @@
 
     <div class="row">
                 <div class="col-12">
-                {!! Form::model($textbook, ['route' => 'texts.store']) !!}   
+                {!! Form::model($curriculum, ['route' => 'curriculums.store']) !!}   
                         <div class="form-group">
                             {!! Form::label('title', '新しいカリキュラム名:') !!}
                            {!! Form::text('title', null, ['class' => 'form-control']) !!} 
                         </div>
+                        
+                         <div class="form-group">  
+                            {!! Form::label('content', '本文:') !!}
+                           {!! Form::textarea('content', null, ['class' => 'form-control']) !!} 
+                        </div>   
         
                         {!! Form::submit('更新', ['class' => 'btn btn-primary']) !!}
-                        
-                  {!! Form::close() !!}
+                 {!! Form::close() !!}
                 </div>
           </div>
                 
             
 @endsection
-         
-
-                
-            

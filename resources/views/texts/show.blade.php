@@ -33,5 +33,12 @@
             {{-- ページネーションのリンク --}}
            {{-- {{ $microposts->links() }} --}}
    {{--    @endif  --}}  
+   
+              @foreach ($curriculums as $curriculum)  
+                    {{-- テキストの名前 --}}
+                    <h2 class="mb-0">■■■■{!! nl2br(e($curriculum->title)) !!}■■■■</h2> 
+                 
+              @endforeach  
+               <a>{!! link_to_route('curriculums.create', 'curriculumを作成する', [],['class' =>'btn btn-danger']) !!}</a> 
        
 @endsection
