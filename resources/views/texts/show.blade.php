@@ -13,7 +13,7 @@
                 </div>
             </div>
         </aside>
-        　　
+        <div>
     {{--     @if (count($textbook) > 0)  --}}
             <ul class="list-unstyled">
                 <div class="card">
@@ -33,12 +33,16 @@
             {{-- ページネーションのリンク --}}
            {{-- {{ $microposts->links() }} --}}
    {{--    @endif  --}}  
-   
+            <div class="card">
               @foreach ($curriculums as $curriculum)  
                     {{-- テキストの名前 --}}
-                    <h2 class="mb-0">■■■■{!! nl2br(e($curriculum->title)) !!}■■■■</h2> 
-                 
+                    <h2 class="mb-5">■■■■{!! nl2br(e($curriculum->title)) !!}■■■■</h2> 
+                 　 <a>{!! link_to_route('curriculums.show', '詳細ページへ行く',  ['curriculum' => $curriculum->id],['class' =>'btn btn-info']) !!}</a> 
               @endforeach  
-               <a>{!! link_to_route('curriculums.create', 'curriculumを作成する', [],['class' =>'btn btn-danger']) !!}</a> 
-       
+            
+            
+          <a>{!! link_to_route('curriculums.create', 'curriculumを作成する',  ['id' => $textbook->id],['class' =>'btn btn-danger']) !!}</a> 
+          
+          </div>
+        </div>
 @endsection

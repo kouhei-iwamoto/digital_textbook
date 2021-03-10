@@ -21,7 +21,7 @@ class CreateCurriculumsTable extends Migration
             $table->timestamps();
             
             //外部制約キー
-            $table->foreign('text_id')->references('id')->on('texts');
+            $table->foreign('text_id')->references('id')->on('texts')->onDelete('cascade');
         });
     }
 

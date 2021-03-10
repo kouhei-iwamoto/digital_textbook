@@ -38,7 +38,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('texts/{id}', 'TextsController@destroy')->name('texts.delete');
         Route::post('texts', 'TextsController@store')->name('texts.store');
         
-        Route::resource('curriculums', 'CurriculumsController');
+
+        Route::resource('curriculums', 'CurriculumsController')->except('create');
+        Route::get('texts/{id}/curriculums/create', 'CurriculumsController@create')->name('curriculums.create');       
         
     });
     Route::get('/student', 'StudentsController@show');

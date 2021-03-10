@@ -12,7 +12,7 @@ class TextsController extends Controller
     public function show($id)
    {
      //idでテキストを検索して取得
-     $text = Text::find($id);
+     $text = Text::findOrFail($id);
      $curriculums = $text->curriculums()->get();
      
       return view('texts.show',[
