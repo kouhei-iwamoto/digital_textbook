@@ -99,7 +99,14 @@ class CurriculumsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $curriculum = Curriculum::find($id);
+       
+      //タイトル更新
+      $curriculum->title = $request->title;
+      $curriculum->content = $request->content;
+      $curriculum->save();
+      
+      return redirect(route('curriculums.show', ['curriculum' => $request->curriculum]));
     }
 
     /**
@@ -110,6 +117,10 @@ class CurriculumsController extends Controller
      */
     public function destroy($id)
     {
-        //
+    $curriculum = curriculum::find($id);
+     
+     $curriculum->delete();
+     
+    return redirect('/teacher/texts');
     }
 }

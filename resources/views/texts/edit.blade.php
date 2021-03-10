@@ -21,7 +21,7 @@
            
            <div class="row">
                 <div class="col-12">
-                 {!! Form::model($textbook, ['route' => ['texts.update', $textbook->id], 'method' => 'put']) !!}
+             {{--    {!! Form::model($textbook, ['route' => ['texts.update', $textbook->id], 'method' => 'put']) !!}   --}}
         
                         <div class="form-group">
                             {!! Form::label('title', '新しい教科書名:') !!}

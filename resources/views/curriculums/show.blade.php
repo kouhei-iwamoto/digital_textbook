@@ -16,10 +16,12 @@
                              <h6>内容</h6>
                             <h3>{{$curriculum -> content}}</h3>
                          </div>   
-        
-                     {!! Form::model($curriculum, ['route' => ['texts.delete', $curriculum->id], 'method' => 'delete']) !!}
-                           {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
+                         
+                         
+                    {!! Form::model($curriculum, ['route' => ['curriculums.destroy', $curriculum->id], 'method' => 'delete']) !!}
+                          {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
+           
                     {!! link_to_route('curriculums.edit', '編集',  ['curriculum' => $curriculum->id],['class' =>'btn btn-info']) !!}
                  {!! Form::close() !!}
                 </div>
