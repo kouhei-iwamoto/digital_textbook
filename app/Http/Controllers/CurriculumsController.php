@@ -80,8 +80,14 @@ class CurriculumsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        //idで指定されたcurriculumテーブルのデータを取得する。
+        $curriculum = Curriculum::find($id);
+        
+        return view('curriculums.edit',[
+        'curriculum' => $curriculum,
+        
+        ]);
     }
 
     /**
