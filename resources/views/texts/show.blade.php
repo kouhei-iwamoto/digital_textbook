@@ -14,10 +14,10 @@
             </div>
         </aside>
         <div>
-    {{--     @if (count($textbook) > 0)  --}}
+ 
             <ul class="list-unstyled">
                 <div class="card">
-    {{--          @foreach ($textbook as $kyokasho)  --}}
+ 
                     {{-- テキストの名前 --}}
                     <h2 class="mb-0">・{!! nl2br(e($textbook->title)) !!}</h2> 
      
@@ -27,17 +27,15 @@
                      {!! Form::model($textbook, ['route' => ['texts.delete', $textbook->id], 'method' => 'delete']) !!}
                            {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
                      {!! Form::close() !!}
-     {{--            @endforeach  --}}
+  
                  </div>
             </ul>
-            {{-- ページネーションのリンク --}}
-           {{-- {{ $microposts->links() }} --}}
-   {{--    @endif  --}}  
+
             <div class="card">
               @foreach ($curriculums as $curriculum)  
                     {{-- テキストの名前 --}}
                     <h2 class="mb-5">■■■■{!! nl2br(e($curriculum->title)) !!}■■■■</h2> 
-                 　 <a>{!! link_to_route('curriculums.show', '詳細ページへ行く',  ['curriculum' => $curriculum->id],['class' =>'btn btn-info']) !!}</a> 
+                 　 {!! link_to_route('curriculums.show', '詳細ページへ行く',  ['curriculum' => $curriculum->id],['class' =>'btn btn-info']) !!}
               @endforeach  
             
             

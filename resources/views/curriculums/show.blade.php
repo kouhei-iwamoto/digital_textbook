@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>ここがcurriculums.showページです。</h1>
-
         <h1>{{$curriculum -> title}}の詳細ページ</h1>
         
         <div class="name">
@@ -24,6 +22,16 @@
            
                     {!! link_to_route('curriculums.edit', '編集',  ['curriculum' => $curriculum->id],['class' =>'btn btn-info']) !!}
                  {!! Form::close() !!}
-                </div>
-          </div>
+        </div>
+        <div class="card">
+      {{--         @foreach ($curriculums as $curriculum)  --}}
+                          {{-- テキストの名前 --}}             
+      {{--              <h2 class="mb-5">■■■■{!! nl2br(e($curriculum->title)) !!}■■■■</h2>       --}}
+      {{--           　 {!! link_to_route('curriculums.show', '詳細ページへ行く',  ['curriculum' => $curriculum->id],['class' =>'btn btn-info']) !!}     --}}
+      {{--       @endforeach         --}}
+            
+            
+      {{--        <a>{!! link_to_route('curriculums.create', 'curriculumを作成する',  ['id' => $textbook->id],['class' =>'btn btn-danger']) !!}</a>          --}}
+          
+      {{--  </div>       --}}
 @endsection

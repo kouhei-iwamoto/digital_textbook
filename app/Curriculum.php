@@ -14,4 +14,14 @@ class Curriculum extends Model
      {
          return $this->belongsTo(Text::class);
      }
+     
+     public function questions()
+     {
+           return $this->hasMany(Question::class);
+     }
+     
+     public function loadRelationshipCounts()
+    {
+       $this->loadCount('questions');
+    }
 }
