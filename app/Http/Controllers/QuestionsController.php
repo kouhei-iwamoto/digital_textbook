@@ -25,13 +25,17 @@ class QuestionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($curriculum)
+    public function create($id)
     {
-    $question = new Question;
-    $text = \Auth::user()->texts();
-    // 引数の$curriculumを使ってテキストを取得する。ログインユーザーの所有するCurriculumに限定。
-    $curriculum = $text->find($curriculum);
+    $curriculum = Curriculum::findOrFail($id);
     
+    if ($curriculum->text->user_id != \Auth::id() ) {
+        
+        abort(404);
+    }
+    
+    $question = new Question;
+   
     return view('questions.create', [
         'question' => $question,
         'curriculum' => $curriculum,
