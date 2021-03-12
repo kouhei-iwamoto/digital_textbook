@@ -19,6 +19,12 @@
                              <h6>答え</h6>
                             <h3>{{$question -> answer}}</h3>
                          </div>   
+                         
+                       {!! Form::model($question, ['route' => ['questions.destroy', $question->id], 'method' => 'delete']) !!}   
+                             {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}    
+                       {!! Form::close() !!}                                           
+           
+                        {!! link_to_route('questions.edit', '編集',  ['question' => $question->id],['class' =>'btn btn-info']) !!}
                   {!! Form::close() !!}
         </div>
                          

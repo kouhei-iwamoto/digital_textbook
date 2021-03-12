@@ -64,7 +64,13 @@ class QuestionsController extends Controller
      */
     public function edit($id)
     {
-        //
+         //idで指定されたcurriculumテーブルのデータを取得する。
+        $question = Question::find($id);
+        
+        return view('questions.edit',[
+        'question' => $question,
+        
+         ]);
     }
 
     /**
@@ -76,7 +82,15 @@ class QuestionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $question = Question::find($id);
+       
+      //タイトル更新
+      $question->title = $request->title;
+      $question->content = $request->content;
+      $question->answer = $request->answer;
+      $question->save();
+      
+      return redirect(route('questions.show', ['question' => $request->question]));
     }
 
     /**
@@ -87,6 +101,10 @@ class QuestionsController extends Controller
      */
     public function destroy($id)
     {
-        //
+     $question = Question::find($id);
+     
+     $question->delete();
+     
+    return redirect('/teacher/texts');
     }
 }
