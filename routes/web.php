@@ -42,6 +42,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('curriculums', 'CurriculumsController')->except('create');
         Route::get('texts/{id}/curriculums/create', 'CurriculumsController@create')->name('curriculums.create');       
         
+        Route::resource('questions', 'QuestionsController')->except('create');
+        
     });
     Route::get('/student', 'StudentsController@show');
 });

@@ -23,13 +23,14 @@
                     {!! link_to_route('curriculums.edit', '編集',  ['curriculum' => $curriculum->id],['class' =>'btn btn-info']) !!}
                  {!! Form::close() !!}
         </div>
+        
+            <h1>問題ページ</h1>
         <div class="card">
-      {{--         @foreach ($curriculums as $curriculum)  --}}
+              @foreach ($questions as $question)  
                           {{-- テキストの名前 --}}             
-      {{--              <h2 class="mb-5">■■■■{!! nl2br(e($curriculum->title)) !!}■■■■</h2>       --}}
-      {{--           　 {!! link_to_route('curriculums.show', '詳細ページへ行く',  ['curriculum' => $curriculum->id],['class' =>'btn btn-info']) !!}     --}}
-      {{--       @endforeach         --}}
-            
+                    <h2 class="mb-5">■■■■{!! nl2br(e($question->title)) !!}■■■■</h2>       
+                 　 {!! link_to_route('questions.show', '詳細ページへ行く',  ['question' => $question->id],['class' =>'btn btn-info']) !!}     
+             @endforeach         
             
       {{--        <a>{!! link_to_route('curriculums.create', 'curriculumを作成する',  ['id' => $textbook->id],['class' =>'btn btn-danger']) !!}</a>          --}}
           

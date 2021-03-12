@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Curriculum;
 use App\Text;
+use App\Question;
 
 class CurriculumsController extends Controller
 {
@@ -64,11 +65,11 @@ class CurriculumsController extends Controller
     {
         //idでテキストを検索して取得
      $curriculum = Curriculum::find($id);
-    // $curriculums = $text->curriculums()->get();
+     $questions = $curriculum->questions()->get();
      
       return view('curriculums.show',[
         'curriculum'=> $curriculum,
-       //'textbook' => $text,
+        'questions' => $questions,
        
      ]);
     }
