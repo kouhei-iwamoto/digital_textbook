@@ -32,7 +32,7 @@
                  　 {!! link_to_route('questions.show', '詳細ページへ行く',  ['question' => $question->id],['class' =>'btn btn-info']) !!}     
              @endforeach         
             
-      {{--        <a>{!! link_to_route('curriculums.create', 'curriculumを作成する',  ['id' => $textbook->id],['class' =>'btn btn-danger']) !!}</a>          --}}
+             <a>{!! link_to_route('questions.create', '問題を作成する',  ['curriculum' => $curriculum->id],['class' =>'btn btn-danger']) !!}</a>          
           
-      {{--  </div>       --}}
+       </div>   
 @endsection

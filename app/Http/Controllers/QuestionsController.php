@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use App\Curriculum;
+use App\Text;
+use App\User;
 
 class QuestionsController extends Controller
 {
@@ -22,9 +25,17 @@ class QuestionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($curriculum)
     {
-        //
+    $question = new Question;
+    $text = \Auth::user()->texts();
+    // 引数の$curriculumを使ってテキストを取得する。ログインユーザーの所有するCurriculumに限定。
+    $curriculum = $text->find($curriculum);
+    
+    return view('questions.create', [
+        'question' => $question,
+        'curriculum' => $curriculum,
+     ]);
     }
 
     /**
