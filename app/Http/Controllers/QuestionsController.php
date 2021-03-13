@@ -57,10 +57,7 @@ class QuestionsController extends Controller
         $question->curriculum_id = $request->curriculum_id;
         $question->save();
         
-        if ($curriculum->text->user_id != \Auth::id() ) {
-        
-        abort(404);
-    }
+
         
         return redirect(route('curriculums.show', ['curriculum' => $request->curriculum_id]));
     }
@@ -76,10 +73,7 @@ class QuestionsController extends Controller
          //idでテキストを検索して取得
      $question = Question::find($id);
    //  $questions = $curriculum->questions()->get();
-     if ($curriculum->text->user_id != \Auth::id() ) {
-        
-        abort(404);
-    }
+
       return view('questions.show',[
         'question'=> $question,
    //   'questions' => $questions,
@@ -96,10 +90,7 @@ class QuestionsController extends Controller
     {
          //idで指定されたcurriculumテーブルのデータを取得する。
         $question = Question::find($id);
-        if ($curriculum->text->user_id != \Auth::id() ) {
-        
-        abort(404);
-    }
+
         return view('questions.edit',[
         'question' => $question,
         
@@ -116,10 +107,7 @@ class QuestionsController extends Controller
     public function update(Request $request, $id)
     {
       $question = Question::find($id);
-       if ($curriculum->text->user_id != \Auth::id() ) {
-        
-        abort(404);
-    }
+
       //タイトル更新
       $question->title = $request->title;
       $question->content = $request->content;
@@ -137,15 +125,11 @@ class QuestionsController extends Controller
      */
     public function destroy($id)
     {
-        if ($curriculum->text->user_id != \Auth::id() ) {
-        
-        abort(404);
-    }
      $question = Question::find($id);
      $curriculum = Curriculum::find($id);
      
      $question->delete();
-     
+
     return redirect(route('curriculums.show', ['curriculum' => $question->curriculum_id]));
     }
 }
