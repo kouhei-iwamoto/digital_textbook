@@ -57,7 +57,7 @@ class QuestionsController extends Controller
         $question->curriculum_id = $request->curriculum_id;
         $question->save();
         
-        return redirect(route('curriculums.show', ['id' => $request->curriculum_id]));
+        return redirect(route('curriculums.show', ['curriculum' => $request->curriculum_id]));
     }
 
     /**
@@ -124,9 +124,10 @@ class QuestionsController extends Controller
     public function destroy($id)
     {
      $question = Question::find($id);
+     $curriculum = Curriculum::find($id);
      
      $question->delete();
      
-    return redirect('/teacher/texts');
+    return redirect(route('curriculums.show', ['curriculum' => $question->curriculum_id]));
     }
 }
