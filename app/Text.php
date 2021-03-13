@@ -21,4 +21,10 @@ class Text extends Model
     {
         $this->loadCount('curriculums');
     }
+    
+    //あるユーザーに使用されているテキスト
+    public function text_for_user()
+    {
+        return $this->belongsToMany(User::class, 'user_text','text_id', 'user_id')->withTimestamps();
+    }
 }

@@ -46,4 +46,10 @@ class User extends Authenticatable
     {
         $this->loadCount('texts');
     }
+    
+   //このユーザが使用している教科書。（ Textモデルとの関係を定義）
+    public function user_text()
+    {
+        return $this->belongsToMany(Text::class, 'user_text','user_id', 'text_id')->withTimestamps();
+    }
 }
