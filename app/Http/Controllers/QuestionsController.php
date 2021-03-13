@@ -74,6 +74,7 @@ class QuestionsController extends Controller
      $question = Question::find($id);
    //  $questions = $curriculum->questions()->get();
 
+
       return view('questions.show',[
         'question'=> $question,
    //   'questions' => $questions,
