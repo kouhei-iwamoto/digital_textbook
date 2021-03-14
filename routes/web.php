@@ -45,5 +45,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('questions', 'QuestionsController')->except('create');
         Route::get('curriculums/{curriculum}/questions/create', 'QuestionsController@create')->name('questions.create');
     });
-    Route::get('/student', 'StudentsController@show');
+       Route::get('/student', 'StudentsController@show')->name('students.show');
+    
 });

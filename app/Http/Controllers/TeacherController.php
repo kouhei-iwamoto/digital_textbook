@@ -20,7 +20,7 @@ class TeacherController extends Controller
  //  {
  //     $students = User::where('is_teacher', false)->get();
   //    return view('teacher.students', [
-   //      '$students' => $students,
+   //      'students' => $students,
    //   ]);
  //  }
  

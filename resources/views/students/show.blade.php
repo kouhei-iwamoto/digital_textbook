@@ -9,5 +9,20 @@
                 </div>
             </div>
         </aside>
+    </div>
+    <h1>ここに教科書一覧を表示</h1>
+    
+     {{--  @if (count($texts) > 0)   --}}
+            <ul class="list-unstyled">
+                <div class="card">
+               @foreach ($texts as $text) 
+                    {{-- 投稿内容 --}}
+                    <h2 class="mb-0">・{!! nl2br(e($text->title)) !!}</h2>
+                    
+                @endforeach   
+                 </div>
+            </ul>
+            
+   {{--  @endif    --}}
        
 @endsection

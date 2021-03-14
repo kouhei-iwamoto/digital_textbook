@@ -24,8 +24,7 @@
                 @endforeach
                  </div>
             </ul>
-            {{-- ページネーションのリンク --}}
-           {{-- {{ $microposts->links() }} --}}
+            
         @endif
 
 @endsection
