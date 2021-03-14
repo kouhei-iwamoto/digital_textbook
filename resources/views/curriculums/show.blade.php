@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@if(Auth::user()->is_teacher)
         <h1>{{$curriculum -> title}}の詳細ページ</h1>
         
         <div class="name">
@@ -35,4 +36,29 @@
              <a>{!! link_to_route('questions.create', '問題を作成する',  ['curriculum' => $curriculum->id],['class' =>'btn btn-danger']) !!}</a>          
           
        </div>   
+       
+@else
+    <h1>{{$curriculum -> title}}のテキストと問題</h1>
+        
+        <div class="name">
+               {!! Form::open() !!}
+                         <div class="card">    
+                             <h6>本文</h6>
+                            <h3>{{$curriculum -> content}}</h3>
+                         </div> 
+               {!! Form::close() !!}
+        </div>
+        
+        <h1>問題ページ</h1>
+            <div class="card">
+                  @foreach ($questions as $question)  
+                              {{-- テキストの名前 --}}             
+                        <h2 class="mb-5">■■■■{!! nl2br(e($question->title)) !!}■■■■</h2>      
+                        <h2 class="mb-5">{!! nl2br(e($question->content)) !!}</h2>     
+                        <h1>回答を記述する</h1>
+                 @endforeach         
+            </div>   
+        
+        
+@endif
 @endsection

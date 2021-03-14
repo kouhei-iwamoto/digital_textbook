@@ -48,5 +48,5 @@ Route::group(['middleware' => ['auth']], function () {
        Route::get('/student', 'StudentsController@show')->name('students.show');
        Route::get('/student/texts', 'StudentsController@texts')->name('students.texts');
        Route::get('texts/{id}', 'TextsController@show')->name('texts.show');
-    
+       Route::get('curriculums/{curriculum}', 'CurriculumsController@show')->name('curriculums.show');
 });
