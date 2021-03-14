@@ -17,4 +17,12 @@ class StudentsController extends Controller
      ]);
     
     }
+    
+     public function texts()
+      {
+       $texts = Text::orderBy('id', 'desc')->paginate(10);
+       return view('teacher.texts', [
+        'texts' => $texts,
+        ]);
+      }
 }

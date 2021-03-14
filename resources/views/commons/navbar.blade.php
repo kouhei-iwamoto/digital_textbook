@@ -10,16 +10,28 @@
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
-                @if (Auth::check())
+               @if (Auth::check())
                     {{-- ユーザ一覧ページへのリンク --}}
-                    <li class="nav-item">{!! link_to_route('teacher.texts', '教科書一覧ページ', [], ['class' => 'nav-link']) !!}</li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            {{-- ログアウトへのリンク --}}
-                            <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
-                        </ul>
-                    </li>
+                    @if(Auth::user()->is_teacher)
+                        <li class="nav-item">{!! link_to_route('teacher.texts', '教科書一覧ページ', [], ['class' => 'nav-link']) !!}</li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                {{-- ログアウトへのリンク --}}
+                                <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
+                            </ul>
+                        </li>
+                    @else
+                      <li class="nav-item">{!! link_to_route('students.texts', '教科書一覧ページ', [], ['class' => 'nav-link']) !!}</li>   
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                {{-- ログアウトへのリンク --}}
+                                <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
+                            </ul>
+                        </li>
+                    @endif
+                    
                 @else
                     {{-- ユーザ登録ページへのリンク --}}
                     <li class="nav-item">{!! link_to_route('signup.get', 'Signup', [], ['class' => 'nav-link']) !!}</li>

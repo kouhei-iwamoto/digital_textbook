@@ -46,5 +46,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('curriculums/{curriculum}/questions/create', 'QuestionsController@create')->name('questions.create');
     });
        Route::get('/student', 'StudentsController@show')->name('students.show');
+       Route::get('/student/texts', 'StudentsController@texts')->name('students.texts');
     
 });
