@@ -51,12 +51,14 @@
         
         <h1>問題ページ</h1>
             <div class="card">
-                  @foreach ($questions as $question)  
-                              {{-- テキストの名前 --}}             
-                        <h2 class="mb-5">■■■■{!! nl2br(e($question->title)) !!}■■■■</h2>      
-                        <h2 class="mb-5">{!! nl2br(e($question->content)) !!}</h2>     
-                        <h1>回答を記述する</h1>
-                 @endforeach         
+                 {{--       {!! Form::open('回答をチェックするルート', ['method' => 'post']) !!}        --}}
+                            @foreach ($questions as $question)  
+                                <h2 class="mb-5">■■■■{!! nl2br(e($question->title)) !!}■■■■</h2>      
+                                <div class="mb-5">{!! nl2br(e($question->content)) !!}</div> 
+                                <div class="mb-5">{!! Form::text('answers[' . $question->id . ']', null, ['class' => 'answer']) !!}
+                            @endforeach         
+                            {!! Form::submit('解答する') !!}
+                        {!! Form::close() !!}
             </div>   
         
         

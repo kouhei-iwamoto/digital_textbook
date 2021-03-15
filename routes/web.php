@@ -49,4 +49,5 @@ Route::group(['middleware' => ['auth']], function () {
        Route::get('/student/texts', 'StudentsController@texts')->name('students.texts');
        Route::get('texts/{id}', 'TextsController@show')->name('texts.show');
        Route::get('curriculums/{curriculum}', 'CurriculumsController@show')->name('curriculums.show');
+       Route::post('questions/{question}' , 'QuestionsController@answer')->name('questions.answer');
 });
