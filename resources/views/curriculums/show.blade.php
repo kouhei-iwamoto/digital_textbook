@@ -51,7 +51,7 @@
         
         <h1>問題ページ</h1>
             <div class="card">
-                 {{--       {!! Form::open('回答をチェックするルート', ['method' => 'post']) !!}        --}}
+                        {!! Form::open(['route' => 'answers.store'], ['method' => 'post']) !!}        
                             @foreach ($questions as $question)  
                                 <h2 class="mb-5">■■■■{!! nl2br(e($question->title)) !!}■■■■</h2>      
                                 <div class="mb-5">{!! nl2br(e($question->content)) !!}</div> 

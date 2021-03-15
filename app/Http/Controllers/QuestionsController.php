@@ -50,12 +50,13 @@ class QuestionsController extends Controller
      */
     public function store(Request $request)
     {
-        $question = new Question;
-        $question->title = $request->title;
-        $question->content = $request->content;
-        $question->answer = $request->answer;
-        $question->curriculum_id = $request->curriculum_id;
-        $question->save();
+        
+         $question = new Question;
+         $question->title = $request->title;
+         $question->content = $request->content;
+         $question->answer = $request->answer;
+         $question->curriculum_id = $request->curriculum_id;
+         $question->save();
         
 
         

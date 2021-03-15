@@ -45,9 +45,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('questions', 'QuestionsController')->except('create');
         Route::get('curriculums/{curriculum}/questions/create', 'QuestionsController@create')->name('questions.create');
     });
+    
        Route::get('/student', 'StudentsController@show')->name('students.show');
        Route::get('/student/texts', 'StudentsController@texts')->name('students.texts');
        Route::get('texts/{id}', 'TextsController@show')->name('texts.show');
        Route::get('curriculums/{curriculum}', 'CurriculumsController@show')->name('curriculums.show');
-       Route::post('questions/{question}' , 'QuestionsController@answer')->name('questions.answer');
+       Route::post('answers' , 'AnswersController@store')->name('answers.store');
 });
