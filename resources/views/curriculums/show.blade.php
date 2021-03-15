@@ -51,7 +51,8 @@
         
         <h1>問題ページ</h1>
             <div class="card">
-                        {!! Form::open(['route' => 'answers.store'], ['method' => 'post']) !!}        
+                        {!! Form::open(['route' => 'curriculums.answer'], ['method' => 'post']) !!}
+                            {!! Form::hidden('curriculum_id', $curriculum->id) !!}}
                             @foreach ($questions as $question)  
                                 <h2 class="mb-5">■■■■{!! nl2br(e($question->title)) !!}■■■■</h2>      
                                 <div class="mb-5">{!! nl2br(e($question->content)) !!}</div> 

@@ -64,7 +64,7 @@ class CurriculumsController extends Controller
     public function show($id)
     {
         //idでテキストを検索して取得
-     $curriculum = Curriculum::find($id);
+     $curriculum = Curriculum::findOrFail($id);
      $questions = $curriculum->questions()->get();
      
       return view('curriculums.show',[
@@ -83,11 +83,14 @@ class CurriculumsController extends Controller
     public function edit($id)
     {   
         //idで指定されたcurriculumテーブルのデータを取得する。
-        $curriculum = Curriculum::find($id);
+        $curriculum = Curriculum::findOrFail($id);
+        
+        if ($curriculm->text->user_id != \Auth::id()) {
+            abort(404);
+        }
         
         return view('curriculums.edit',[
-        'curriculum' => $curriculum,
-        
+            'curriculum' => $curriculum,
         ]);
     }
 
@@ -100,7 +103,7 @@ class CurriculumsController extends Controller
      */
     public function update(Request $request, $id)
     {
-       $curriculum = Curriculum::find($id);
+       $curriculum = Curriculum::findOrFail($id);
        
       //タイトル更新
       $curriculum->title = $request->title;
@@ -118,10 +121,33 @@ class CurriculumsController extends Controller
      */
     public function destroy($id)
     {
-    $curriculum = curriculum::find($id);
+    $curriculum = Curriculum::findOrFail($id);
      
      $curriculum->delete();
      
     return redirect('/teacher/texts');
+    }
+    
+    public function answer(Request $request)
+    {
+        $curriculum = Curriculum::findOrFail($request->curriculum_id);
+        $questions = $curriculum->questions()->get();
+        
+       // dd($request->answers);
+        $isAllOk = true;
+        foreach ($questions as $id => $question) {
+            if ($request->answers[$question->id] != $question->answer) {
+                // 不正解
+                $isAllOk = false;
+            }
+            
+            if ($isAllOk) {
+                // $$curriculum->text->id のテキストにリダイレクト
+                 return redirect(route('curriculums.show', ['curriculum' => $curriculum->id]))->with('flash_message', '正解です。問題をしましょう！');
+            }
+            else {
+               return redirect(route('curriculums.show', ['curriculum' => $curriculum->id]))->with('flash_message', '間違いです');
+            }
+        }
     }
 }

@@ -50,5 +50,5 @@ Route::group(['middleware' => ['auth']], function () {
        Route::get('/student/texts', 'StudentsController@texts')->name('students.texts');
        Route::get('texts/{id}', 'TextsController@show')->name('texts.show');
        Route::get('curriculums/{curriculum}', 'CurriculumsController@show')->name('curriculums.show');
-       Route::post('answers' , 'AnswersController@store')->name('answers.store');
+       Route::post('/curriculums/answer' , 'CurriculumsController@answer')->name('curriculums.answer');
 });

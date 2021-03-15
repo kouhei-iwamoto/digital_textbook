@@ -66,7 +66,7 @@ class TextsController extends Controller
   //  $is_teacher = Text::where('is_teacher', true)->get();
       //タイトル更新
       $text->title = $request->title;
-      $text->user_id = 3;
+      $text->user_id = \Auth::id();
       $text->save();
       
       return redirect('/teacher/texts');
