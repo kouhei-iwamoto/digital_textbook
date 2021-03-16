@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Text;
+use App\User;
 
 class TeacherController extends Controller
 {
@@ -16,13 +17,13 @@ class TeacherController extends Controller
         ]);
    }
    
-//  public function students()
-//  {
-//      $students = User::where('is_teacher', false)->get();
-//      return view('teacher.students', [
-//          'students' => $students,
-//      ]);
-//  }
+  public function students()
+  {
+      $students = User::where('is_teacher', false)->get();
+      return view('teacher.students', [
+          'students' => $students,
+      ]);
+  }
  
     public function texts()
     {

@@ -13,6 +13,7 @@
                @if (Auth::check())
                     {{-- ユーザ一覧ページへのリンク --}}
                     @if(Auth::user()->is_teacher)
+                        <li class="nav-item">{!! link_to_route('teacher.students', '学生一覧', [], ['class' => 'nav-link']) !!}</li>
                         <li class="nav-item">{!! link_to_route('teacher.texts', '教科書一覧ページ', [], ['class' => 'nav-link']) !!}</li>
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
