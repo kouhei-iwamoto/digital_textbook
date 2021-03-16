@@ -140,6 +140,7 @@ class CurriculumsController extends Controller
                 // 不正解
                 $isAllOk = false;
             }
+        }
             
             if ($isAllOk) {
                 // $$curriculum->text->id のテキストにリダイレクト
@@ -148,6 +149,6 @@ class CurriculumsController extends Controller
             else {
                return redirect(route('curriculums.show', ['curriculum' => $curriculum->id]))->with('flash_message', '間違いです');
             }
-        }
+        
     }
 }
