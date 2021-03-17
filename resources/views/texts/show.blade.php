@@ -16,21 +16,22 @@
         </aside>
         <div>
  
-            <ul class="list-unstyled">
+
                 <div class="card">
- 
-                    {{-- テキストの名前 --}}
-                    <h2 class="mb-0">・{!! nl2br(e($textbook->title)) !!}</h2> 
-     
-                    <li class="dropdown-item">{!! link_to_route('texts.edit', '編集', ['id' => $textbook->id]) !!}</li>   
-                     
-                     {{-- Formファザードで作成する。--}}
-                     {!! Form::model($textbook, ['route' => ['texts.delete', $textbook->id], 'method' => 'delete']) !!}
-                           {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
-                     {!! Form::close() !!}
   
-                 </div>
-            </ul>
+                        {{-- テキストの名前 --}}
+                        <h2 class="mb-0">{!! nl2br(e($textbook->title)) !!}</h2> 
+                
+                         {!! link_to_route('texts.edit', '編集', ['id' => $textbook->id], ['class' =>'btn btn-info']) !!}
+                         
+                         {{-- Formファザードで作成する。--}}
+                         {!! Form::model($textbook, ['route' => ['texts.delete', $textbook->id], 'method' => 'delete']) !!}
+                              {!! Form::submit('削除', ['class' => 'btn btn-danger btn-block']) !!}
+                         {!! Form::close() !!} 
+                         
+                </div>
+                
+    
 
             <div class="card">
               @foreach ($curriculums as $curriculum)  
@@ -40,7 +41,7 @@
               @endforeach  
             
             
-          <a>{!! link_to_route('curriculums.create', 'curriculumを作成する',  ['id' => $textbook->id],['class' =>'btn btn-danger']) !!}</a> 
+            {!! link_to_route('curriculums.create', 'curriculumを作成する',  ['id' => $textbook->id],['class' =>'btn btn-danger']) !!}
           
           </div>
         </div>

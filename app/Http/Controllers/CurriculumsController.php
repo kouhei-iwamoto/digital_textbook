@@ -85,7 +85,7 @@ class CurriculumsController extends Controller
         //idで指定されたcurriculumテーブルのデータを取得する。
         $curriculum = Curriculum::findOrFail($id);
         
-        if ($curriculm->text->user_id != \Auth::id()) {
+        if ($curriculum->text->user_id != \Auth::id()) {
             abort(404);
         }
         
