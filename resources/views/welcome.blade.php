@@ -6,7 +6,23 @@
     @if(Auth::user()->is_teacher)
         <h1>始めましょう！！{{ Auth::user()->name }}さん</h1>
     @else
-        <h1>こんにちは学生さん</h1>
+        <div class="heloo">
+            <script>
+              (function() {
+                var hour = (new Date).getHours();
+                if (hour > 4 && hour < 11) {
+                  document.write('おはようございます');
+                }
+                else if (hour > 10 && hour < 18) {
+                  document.write('こんにちは');
+                }
+                else {
+                  document.write('こんばんは');
+                }
+              })();
+            </script>
+         </div>
+         <h3>教科書を選びましょう！{{ Auth::user()->name }}さん</h3>
     @endif
       
 @else

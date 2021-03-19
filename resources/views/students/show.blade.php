@@ -10,7 +10,7 @@
             </div>
         </aside>
     </div>
-    <h1>ここに教科書一覧を表示</h1>
+
     
      {{--  @if (count($texts) > 0)   --}}
             <ul class="list-unstyled">
